@@ -321,6 +321,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/VSSettingsProvider.ref.dll"
 "Assets/FurnishedCabin/Scripts/MoveableObject.cs"
 "Assets/FurnishedCabin/Scripts/MoveObjectController.cs"
+"Assets/PlayerMotion.cs"
 -langversion:8.0
 
 /deterministic
