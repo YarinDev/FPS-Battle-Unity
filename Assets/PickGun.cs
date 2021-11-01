@@ -8,21 +8,21 @@ public class PickGun : MonoBehaviour
     public GameObject camera;
     public GameObject gunInBox;
     public GameObject gunInHand;
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     private void OnMouseDown()
     {
-        for(int i=0; i<camera.transform.childCount; i++)
+        Transform child;
+        for (int i = 0; i < camera.transform.childCount; i++)
         {
-            camera.transform.GetChild(i).gameObject.setActive(false);
+            child = camera.transform.GetChild(i);
+            child.gameObject.SetActive(false);
         }
 
-        gunInHand.SetActive(false);
         gunInBox.SetActive(false);
         gunInHand.SetActive(true);
     }
@@ -30,6 +30,5 @@ public class PickGun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 }

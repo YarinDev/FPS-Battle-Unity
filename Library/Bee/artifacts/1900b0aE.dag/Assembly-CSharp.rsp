@@ -324,6 +324,7 @@
 "Assets/FurnishedCabin/Scripts/MoveObjectController.cs"
 "Assets/PickGun.cs"
 "Assets/PlayerMotion.cs"
+"Assets/Shooting.cs"
 -langversion:8.0
 
 /deterministic

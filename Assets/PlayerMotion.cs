@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class PlayerMotion : MonoBehaviour
 {
-    private float speed = 3, angularSpeed = 200;
+    private float speed = 10, angularSpeed = 200;
     private CharacterController controller;
     private float rotationAboutY = 0, rotationAboutX = 0;
 
