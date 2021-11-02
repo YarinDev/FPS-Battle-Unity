@@ -319,12 +319,12 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/VSSettingsProvider.ref.dll"
-"Assets/DoorMotion.cs"
 "Assets/FurnishedCabin/Scripts/MoveableObject.cs"
 "Assets/FurnishedCabin/Scripts/MoveObjectController.cs"
-"Assets/PickGun.cs"
-"Assets/PlayerMotion.cs"
-"Assets/Shooting.cs"
+"Assets/Scripts/DoorMotion.cs"
+"Assets/Scripts/PickGun.cs"
+"Assets/Scripts/PlayerMotion.cs"
+"Assets/Scripts/Shooting.cs"
 -langversion:8.0
 
 /deterministic

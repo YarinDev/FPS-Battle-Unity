@@ -41,12 +41,12 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\PickGun.cs" />
+     <Compile Include="Assets\Scripts\PickGun.cs" />
+     <Compile Include="Assets\Scripts\Shooting.cs" />
      <Compile Include="Assets\FurnishedCabin\Scripts\MoveableObject.cs" />
-     <Compile Include="Assets\DoorMotion.cs" />
-     <Compile Include="Assets\PlayerMotion.cs" />
+     <Compile Include="Assets\Scripts\DoorMotion.cs" />
+     <Compile Include="Assets\Scripts\PlayerMotion.cs" />
      <Compile Include="Assets\FurnishedCabin\Scripts\MoveObjectController.cs" />
-     <Compile Include="Assets\Shooting.cs" />
      <None Include="Assets\Conifers [BOTD]\Render Pipeline Support\Built-in RP\CTI Runtime Components\Shaders\CTI_LOD_Bark_Array_301.shader" />
      <None Include="Assets\Conifers [BOTD]\Render Pipeline Support\Built-in RP\CTI Runtime Components\Shaders\CTI_LOD_Billboard_301.shader" />
      <None Include="Assets\Conifers [BOTD]\Render Pipeline Support\Built-in RP\CTI Runtime Components\Shaders\Includes\CTI_BillboardVertex_301.cginc" />
