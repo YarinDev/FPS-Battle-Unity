@@ -606,6 +606,7 @@ MonoBehaviour:
   shootingSound3: {fileID: 1745652839}
   shootingSound4: {fileID: 1917228408}
   Knight: {fileID: 0}
+  text: {fileID: 1073303617}
 --- !u!120 &102898265
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -626,7 +627,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: d72c9477ca7d07e408b191abe0278062, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -658,7 +659,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.05042076
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1587,7 +1588,7 @@ GameObject:
   - component: {fileID: 409485807}
   - component: {fileID: 409485806}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TextRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2870,7 +2871,7 @@ GameObject:
   - component: {fileID: 1073303618}
   - component: {fileID: 1073303617}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: TextLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

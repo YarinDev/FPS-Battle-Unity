@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
+
 using UnityEngine.Serialization;
 
 public class Shooting : MonoBehaviour
@@ -21,6 +23,7 @@ public class Shooting : MonoBehaviour
     private Animator animator;
     private static int numHits;
     private NavMeshAgent agent;
+    public Text text ;
 
     // Start is called before the first frame update
     void Start()
@@ -37,29 +40,44 @@ public class Shooting : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             RaycastHit hit;
-            if (Physics.Raycast(aCamera.transform.position, aCamera.transform.forward, out hit))
+            Transform child;
+            int count = 0;
+            for (int i = 0; i < aCamera.transform.childCount; i++)
             {
-                target.transform.position = hit.point;
-                //draw line
-                shootingSound1.Play();
-                shootingSound2.Play();
-                shootingSound3.Play();
-                shootingSound4.Play();
-                StartCoroutine(ShowFlash());
-
-
-                //check that the bullet hit the knight
-                if (hit.transform.gameObject == Knight)
+                child = aCamera.transform.GetChild(i);
+                if (child.transform.gameObject.activeSelf == true)
                 {
-                    numHits++;
-                    if (numHits < 3) // npc can fall and get up again
+                    count++;
+                }
+            }
+
+            if (count > 0)
+            {
+                text.text = "Weapon collected!/n Attack Enemies!";
+                if (Physics.Raycast(aCamera.transform.position, aCamera.transform.forward, out hit))
+                {
+                    target.transform.position = hit.point;
+                    //draw line
+                    shootingSound1.Play();
+                    shootingSound2.Play();
+                    shootingSound3.Play();
+                    shootingSound4.Play();
+                    StartCoroutine(ShowFlash());
+
+
+                    //check that the bullet hit the knight
+                    if (hit.transform.gameObject == Knight)
                     {
-                        StartCoroutine(KnightFallAndGettingUp());
-                    }
-                    else //npc is dying
-                    {
-                        animator.SetInteger("state", 4); //dying
-                        agent.enabled = false;
+                        numHits++;
+                        if (numHits < 3) // npc can fall and get up again
+                        {
+                            StartCoroutine(KnightFallAndGettingUp());
+                        }
+                        else //npc is dying
+                        {
+                            animator.SetInteger("state", 4); //dying
+                            agent.enabled = false;
+                        }
                     }
                 }
             }
@@ -70,11 +88,11 @@ public class Shooting : MonoBehaviour
     {
         //check what state was before falling
         int st = animator.GetInteger("state");
-        
+
         //stop moving towards the target
         if (st == 1) //walking
             agent.enabled = false;
-        
+
         animator.SetInteger("state", 2); //fall back
 
         yield return new WaitForSeconds(2f); // delay
@@ -83,7 +101,7 @@ public class Shooting : MonoBehaviour
         //renew motion
         if (st == 1) //it was walking
             agent.enabled = true;
-        
+
 
         animator.SetInteger("state", st); //previuos state
     }
