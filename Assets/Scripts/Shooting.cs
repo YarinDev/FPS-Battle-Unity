@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UI;
 
 using UnityEngine.Serialization;
 
@@ -23,7 +22,6 @@ public class Shooting : MonoBehaviour
     private Animator animator;
     private static int numHits;
     private NavMeshAgent agent;
-    public Text text ;
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +51,6 @@ public class Shooting : MonoBehaviour
 
             if (count > 0)
             {
-                text.text = "Weapon collected!/n Attack Enemies!";
                 if (Physics.Raycast(aCamera.transform.position, aCamera.transform.forward, out hit))
                 {
                     target.transform.position = hit.point;

@@ -48,17 +48,18 @@ public class PlayerMotion : MonoBehaviour
         controller.Move(motion); //in Global coordinates
         //if  was A/W/S/D key was pressed
         if (dz < 0 || dz > 0 || dx < 0 || dx > 0)
-        {
+        {  
             if (!stepSound.isPlaying)
                 stepSound.Play();
             //turn on npc
             animator = npc.GetComponent<Animator>();
-            animator2 = npc2.GetComponent<Animator>();
+             animator2 = npc2.GetComponent<Animator>();
             animator.SetInteger("state", 1);
-            animator2.SetInteger("state", 1);
-            agent = npc.GetComponent<NavMeshAgent>();
-            agent2 = npc2.GetComponent<NavMeshAgent>();
-            StartCoroutine(npcActivation());
+             animator2.SetInteger("state", 1);
+           // agent = npc.GetComponent<NavMeshAgent>();
+            // agent2 = npc2.GetComponent<NavMeshAgent>();
+            //StartCoroutine(npcActivation());
+          
         }
 
         //bob starts walk after standing
