@@ -13,9 +13,9 @@ public class PlayerMotion : MonoBehaviour
     public GameObject camera; // publics must be initialized in Unity
 
     private AudioSource stepSound;
-    public GameObject npc,npc2;
-    private Animator animator,animator2;
-    private NavMeshAgent agent,agent2;
+    public GameObject npc, npc2, npc3;
+    private Animator animator, animator2, animator3;
+    private NavMeshAgent agent, agent2, agent3;
 
     // Start is called before the first frame update
     void Start()
@@ -48,27 +48,32 @@ public class PlayerMotion : MonoBehaviour
         controller.Move(motion); //in Global coordinates
         //if  was A/W/S/D key was pressed
         if (dz < 0 || dz > 0 || dx < 0 || dx > 0)
-        {  
+        {
             if (!stepSound.isPlaying)
                 stepSound.Play();
             //turn on npc
             animator = npc.GetComponent<Animator>();
-             animator2 = npc2.GetComponent<Animator>();
+            animator2 = npc2.GetComponent<Animator>();
+            animator3 = npc3.GetComponent<Animator>();
             animator.SetInteger("state", 1);
-             animator2.SetInteger("state", 1);
-           // agent = npc.GetComponent<NavMeshAgent>();
-            // agent2 = npc2.GetComponent<NavMeshAgent>();
-            //StartCoroutine(npcActivation());
-          
+            animator2.SetInteger("state", 1);
+            animator3.SetInteger("state", 1);
+            agent = npc.GetComponent<NavMeshAgent>();
+            agent2 = npc2.GetComponent<NavMeshAgent>();
+            agent3 = npc3.GetComponent<NavMeshAgent>();
+            StartCoroutine(npcActivation());
+           
         }
 
         //bob starts walk after standing
         IEnumerator npcActivation()
         {
             yield return new WaitForSeconds(2f); // delay
-            animator.SetInteger("state", 2);
+            //animator.SetInteger("state", 2);
             agent.enabled = true; //this starts npc motion
             agent2.enabled = true; //this starts npc2 motion
+            agent3.enabled = true; //this starts npc3 motion
+           
             //and let npc walk through
         }
         // simple motion

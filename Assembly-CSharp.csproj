@@ -47,6 +47,7 @@
      <Compile Include="Assets\Scripts\DoorMotion.cs" />
      <Compile Include="Assets\Scripts\PlayerMotion.cs" />
      <Compile Include="Assets\FurnishedCabin\Scripts\MoveObjectController.cs" />
+     <Compile Include="Assets\Scripts\NPCMotion.cs" />
      <None Include="Assets\Conifers [BOTD]\Render Pipeline Support\Built-in RP\CTI Runtime Components\Shaders\CTI_LOD_Bark_Array_301.shader" />
      <None Include="Assets\Conifers [BOTD]\Render Pipeline Support\Built-in RP\CTI Runtime Components\Shaders\CTI_LOD_Billboard_301.shader" />
      <None Include="Assets\Conifers [BOTD]\Render Pipeline Support\Built-in RP\CTI Runtime Components\Shaders\Includes\CTI_BillboardVertex_301.cginc" />

@@ -322,6 +322,7 @@
 "Assets/FurnishedCabin/Scripts/MoveableObject.cs"
 "Assets/FurnishedCabin/Scripts/MoveObjectController.cs"
 "Assets/Scripts/DoorMotion.cs"
+"Assets/Scripts/NPCMotion.cs"
 "Assets/Scripts/PickGun.cs"
 "Assets/Scripts/PlayerMotion.cs"
 "Assets/Scripts/Shooting.cs"
