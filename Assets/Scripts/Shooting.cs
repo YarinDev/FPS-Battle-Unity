@@ -48,7 +48,7 @@ public class Shooting : MonoBehaviour
                     count++;
                 }
             }
-
+            print("count: " + count);
             if (count > 0)
             {
                 if (Physics.Raycast(aCamera.transform.position, aCamera.transform.forward, out hit))
