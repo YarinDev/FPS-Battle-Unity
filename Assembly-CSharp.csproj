@@ -41,11 +41,13 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\NPCMotion.cs" />
+     <Compile Include="Assets\Scripts\NPC_GasMotion.cs" />
      <Compile Include="Assets\Scripts\PickGun.cs" />
+     <Compile Include="Assets\Scripts\NPC_SwatMotion.cs" />
      <Compile Include="Assets\Scripts\Shooting.cs" />
      <Compile Include="Assets\FurnishedCabin\Scripts\MoveableObject.cs" />
      <Compile Include="Assets\Scripts\DoorMotion.cs" />
+     <Compile Include="Assets\Scripts\NPC_TeammateMotion.cs" />
      <Compile Include="Assets\Scripts\PlayerMotion.cs" />
      <Compile Include="Assets\FurnishedCabin\Scripts\MoveObjectController.cs" />
      <None Include="Assets\Conifers [BOTD]\Render Pipeline Support\Built-in RP\CTI Runtime Components\Shaders\CTI_LOD_Bark_Array_301.shader" />

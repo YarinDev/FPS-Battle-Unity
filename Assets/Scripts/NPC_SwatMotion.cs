@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class NPCMotion : MonoBehaviour
+public class NPC_SwatMotion : MonoBehaviour
 {
     private Animator animator;
     private NavMeshAgent agent;
@@ -16,6 +16,7 @@ public class NPCMotion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = false;
     }
@@ -35,6 +36,7 @@ public class NPCMotion : MonoBehaviour
                     if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
                     {
                         //   animator.SetInteger("state", 5);
+                        //print("oved2");
                         StartCoroutine(npcRifleRun());
                         //left chair location fot target
                         /*player.transform.SetPositionAndRotation(new Vector3(35.3f, 1.1f, -43.49f),
@@ -49,10 +51,8 @@ public class NPCMotion : MonoBehaviour
 
             IEnumerator npcRifleRun()
             {
-                print("oved");
                 yield return new WaitForSeconds(0f); // delay
                 animator.SetInteger("state", 2);
-
             }
         }
     }
