@@ -10,7 +10,10 @@ public class NPC_TeammateMotion : MonoBehaviour
 {
     private Animator animator;
     private NavMeshAgent agent;
+    private bool flag = true;
     public GameObject target;
+    public GameObject target2;
+
     public GameObject gunInBox;
     public GameObject gunInHand;
 
@@ -30,27 +33,36 @@ public class NPC_TeammateMotion : MonoBehaviour
     {
         if (agent.enabled)
         {
-            agent.SetDestination(target.transform.position); //start AI path generation(A* algorithem)
-            //and start moving on the path
-            //draw path
-            if (!agent.pathPending)
+            if (flag)
             {
-                if (agent.remainingDistance <= agent.stoppingDistance)
+                agent.SetDestination(target.transform.position); //start AI path generation(A* algorithem)
+                //and start moving on the path
+                //draw path
+                if (!agent.pathPending)
                 {
-                    if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                    if (agent.remainingDistance <= agent.stoppingDistance)
                     {
-                        StartCoroutine(npcRifleRun());
-                        gunInBox.SetActive(false);
-                        gunInHand.SetActive(true);
+                        if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                        {
+                            StartCoroutine(npcRifleRun());
+                            gunInBox.SetActive(false);
+                            gunInHand.SetActive(true);
+                            flag = false;
+                        }
                     }
                 }
-            }
 
+               
+            }else
+            {
+                agent.SetDestination(target2.transform.position);
+            }
             IEnumerator npcRifleRun()
             {
                 yield return new WaitForSeconds(0f); // delay
                 animator.SetInteger("state", 2);
             }
         }
+       
     }
 }

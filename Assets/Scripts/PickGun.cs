@@ -21,11 +21,11 @@ public class PickGun : MonoBehaviour
     private void OnMouseDown()
     {
         Transform child;
-        for (int i = 0; i < camera.transform.childCount; i++)
-        {
-            child = camera.transform.GetChild(i);
-            child.gameObject.SetActive(false);
-        }
+        // for (int i = 0; i < camera.transform.childCount; i++)
+        // {
+        //     child = camera.transform.GetChild(i);
+        //     child.gameObject.SetActive(false);
+        // }
         
         gunInBox.SetActive(false);
         gunInHand.SetActive(true);

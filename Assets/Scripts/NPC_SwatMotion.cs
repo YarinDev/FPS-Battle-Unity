@@ -10,7 +10,9 @@ public class NPC_SwatMotion : MonoBehaviour
 {
     private Animator animator;
     private NavMeshAgent agent;
+    private bool flag = true;
     public GameObject target;
+    public GameObject target2;
     public GameObject gunInBox;
     public GameObject gunInHand;
 
@@ -28,30 +30,32 @@ public class NPC_SwatMotion : MonoBehaviour
     {
         if (agent.enabled)
         {
-            agent.SetDestination(target.transform.position); //start AI path generation(A* algorithem)
-            //and start moving on the path
-            //draw path
-            if (!agent.pathPending)
+            if (flag)
             {
-                if (agent.remainingDistance <= agent.stoppingDistance)
+                agent.SetDestination(target.transform.position); //start AI path generation(A* algorithem)
+                //and start moving on the path
+                //draw path
+                if (!agent.pathPending)
                 {
-                    if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                    if (agent.remainingDistance <= agent.stoppingDistance)
                     {
-                        //   animator.SetInteger("state", 5);
-                        //print("oved2");
-                        StartCoroutine(npcRifleRun());
-                        gunInBox.SetActive(false);
-                        gunInHand.SetActive(true);
-                        //left chair location fot target
-                        /*player.transform.SetPositionAndRotation(new Vector3(35.3f, 1.1f, -43.49f),
-                            new UnityEngine.Quaternion(0, 90, 0, 0));*/
-                        //agent.transform.SetPositionAndRotation(new Vector3(35.78f, 1.1f, -43.49f),
-                        //     Quaternion.Euler(new Vector3(0,90,0)));
-                        //  StartCoroutine(delayBeforeStand());
-                        // StartCoroutine(delayBeforeWalk());
+                        if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                        {
+                            //   animator.SetInteger("state", 5);
+                            //print("oved2");
+                            StartCoroutine(npcRifleRun());
+                            gunInBox.SetActive(false);
+                            gunInHand.SetActive(true);
+                            flag = false;
+                        }
                     }
                 }
             }
+            else
+            {
+                agent.SetDestination(target2.transform.position);
+            }
+
 
             IEnumerator npcRifleRun()
             {
