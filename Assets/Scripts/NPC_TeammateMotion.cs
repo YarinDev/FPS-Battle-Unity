@@ -11,6 +11,8 @@ public class NPC_TeammateMotion : MonoBehaviour
     private Animator animator;
     private NavMeshAgent agent;
     public GameObject target;
+    public GameObject gunInBox;
+    public GameObject gunInHand;
 
 
     // Start is called before the first frame update
@@ -21,7 +23,6 @@ public class NPC_TeammateMotion : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
 
         agent.enabled = false;
-
     }
 
     // Update is called once per frame
@@ -39,6 +40,8 @@ public class NPC_TeammateMotion : MonoBehaviour
                     if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
                     {
                         StartCoroutine(npcRifleRun());
+                        gunInBox.SetActive(false);
+                        gunInHand.SetActive(true);
                     }
                 }
             }
@@ -49,7 +52,5 @@ public class NPC_TeammateMotion : MonoBehaviour
                 animator.SetInteger("state", 2);
             }
         }
-
-
     }
 }

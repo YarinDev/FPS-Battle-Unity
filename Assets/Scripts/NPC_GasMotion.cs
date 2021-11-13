@@ -11,6 +11,8 @@ public class NPC_GasMotion : MonoBehaviour
     private Animator animator;
     private NavMeshAgent agent;
     public GameObject target;
+    public GameObject gunInBox;
+    public GameObject gunInHand;
    // private LineRenderer line;
 
 
@@ -42,6 +44,8 @@ public class NPC_GasMotion : MonoBehaviour
                     if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
                     {
                         StartCoroutine(npcRifleRun());
+                        gunInBox.SetActive(false);
+                        gunInHand.SetActive(true);
                         //animator.SetInteger("state", 2);
 
                     }

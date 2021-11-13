@@ -11,6 +11,8 @@ public class NPC_SwatMotion : MonoBehaviour
     private Animator animator;
     private NavMeshAgent agent;
     public GameObject target;
+    public GameObject gunInBox;
+    public GameObject gunInHand;
 
 
     // Start is called before the first frame update
@@ -38,6 +40,8 @@ public class NPC_SwatMotion : MonoBehaviour
                         //   animator.SetInteger("state", 5);
                         //print("oved2");
                         StartCoroutine(npcRifleRun());
+                        gunInBox.SetActive(false);
+                        gunInHand.SetActive(true);
                         //left chair location fot target
                         /*player.transform.SetPositionAndRotation(new Vector3(35.3f, 1.1f, -43.49f),
                             new UnityEngine.Quaternion(0, 90, 0, 0));*/
