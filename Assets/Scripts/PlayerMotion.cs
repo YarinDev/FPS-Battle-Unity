@@ -16,6 +16,7 @@ public class PlayerMotion : MonoBehaviour
     public GameObject npc, npc2, npc3;
     private Animator animator, animator2, animator3;
     private NavMeshAgent agent, agent2, agent3;
+    private int counter = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -49,24 +50,48 @@ public class PlayerMotion : MonoBehaviour
         //if  was A/W/S/D key was pressed
         if (dz < 0 || dz > 0 || dx < 0 || dx > 0)
         {
-            if (!stepSound.isPlaying)
-                stepSound.Play();
-            //turn on npc
-            animator = npc.GetComponent<Animator>();
-           animator2 = npc2.GetComponent<Animator>();
-           animator3 = npc3.GetComponent<Animator>();
-            animator.SetInteger("state", 1);
-            animator2.SetInteger("state", 1);
-            animator3.SetInteger("state", 1);
-            agent = npc.GetComponent<NavMeshAgent>();
-            agent2 = npc2.GetComponent<NavMeshAgent>();
-           agent3 = npc3.GetComponent<NavMeshAgent>();
-            //StartCoroutine(npcActivation());
-            agent.enabled = true; //this starts npc motion
-            agent2.enabled = true; //this starts npc motion
-            agent3.enabled = true; //this starts npc motion
-
-           
+            if (counter > 0)
+            {
+                if (agent.enabled.Equals(true) && agent2.enabled.Equals(true))
+                {
+                    if (!stepSound.isPlaying)
+                        stepSound.Play();
+                    //turn on npc
+                    animator = npc.GetComponent<Animator>();
+                    animator2 = npc2.GetComponent<Animator>();
+                    animator3 = npc3.GetComponent<Animator>();
+                    animator.SetInteger("state", 1);
+                    animator2.SetInteger("state", 1);
+                    animator3.SetInteger("state", 1);
+                    agent = npc.GetComponent<NavMeshAgent>();
+                    agent2 = npc2.GetComponent<NavMeshAgent>();
+                    agent3 = npc3.GetComponent<NavMeshAgent>();
+                    //StartCoroutine(npcActivation());
+                    agent.enabled = true; //this starts npc motion
+                    agent2.enabled = true; //this starts npc motion
+                    agent3.enabled = true; //this starts npc motion
+                }
+            }
+            else
+            {
+                if (!stepSound.isPlaying)
+                    stepSound.Play();
+                //turn on npc
+                animator = npc.GetComponent<Animator>();
+                animator2 = npc2.GetComponent<Animator>();
+                animator3 = npc3.GetComponent<Animator>();
+                animator.SetInteger("state", 1);
+                animator2.SetInteger("state", 1);
+                animator3.SetInteger("state", 1);
+                agent = npc.GetComponent<NavMeshAgent>();
+                agent2 = npc2.GetComponent<NavMeshAgent>();
+                agent3 = npc3.GetComponent<NavMeshAgent>();
+                //StartCoroutine(npcActivation());
+                agent.enabled = true; //this starts npc motion
+                agent2.enabled = true; //this starts npc motion
+                agent3.enabled = true; //this starts npc motion
+                counter++;
+            }
         }
 
         //bob starts walk after standing
@@ -76,8 +101,8 @@ public class PlayerMotion : MonoBehaviour
             //animator.SetInteger("state", 2);
             agent.enabled = true; //this starts npc motion
             agent2.enabled = true; //this starts npc2 motion
-           // agent3.enabled = true; //this starts npc3 motion
-           
+            // agent3.enabled = true; //this starts npc3 motion
+
             //and let npc walk through
         }
         // simple motion

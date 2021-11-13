@@ -605,7 +605,8 @@ MonoBehaviour:
   shootingSound2: {fileID: 2122886726}
   shootingSound3: {fileID: 1745652839}
   shootingSound4: {fileID: 1917228408}
-  Knight: {fileID: 0}
+  NPC_GAS: {fileID: 2061391187}
+  NPC_SWAT: {fileID: 1931222038}
 --- !u!82 &102898266
 AudioSource:
   m_ObjectHideFlags: 0

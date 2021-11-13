@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
 using UnityEngine.Serialization;
 
 public class Shooting : MonoBehaviour
@@ -18,18 +17,21 @@ public class Shooting : MonoBehaviour
     public AudioSource shootingSound2;
     public AudioSource shootingSound3;
     public AudioSource shootingSound4;
-    public GameObject Knight;
-    private Animator animator;
-    private static int numHits;
-    private NavMeshAgent agent;
+    public GameObject NPC_GAS, NPC_SWAT;
+    private Animator animator, animator2;
+    private static int numHitsGAS, numHitsSWAT;
+    private NavMeshAgent agent, agent2;
 
     // Start is called before the first frame update
     void Start()
     {
-        numHits = 0;
+        numHitsGAS = 0;
+        numHitsSWAT = 0;
         line = GetComponent<LineRenderer>();
-        animator = Knight.GetComponent<Animator>();
-        agent = Knight.GetComponent<NavMeshAgent>();
+        animator = NPC_GAS.GetComponent<Animator>();
+        animator2 = NPC_SWAT.GetComponent<Animator>();
+        agent = NPC_GAS.GetComponent<NavMeshAgent>();
+        agent2 = NPC_SWAT.GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -48,7 +50,8 @@ public class Shooting : MonoBehaviour
                     count++;
                 }
             }
-            print("count: " + count);
+
+           // print("count: " + count);
             if (count > 0)
             {
                 if (Physics.Raycast(aCamera.transform.position, aCamera.transform.forward, out hit))
@@ -62,18 +65,23 @@ public class Shooting : MonoBehaviour
                     StartCoroutine(ShowFlash());
 
 
-                    //check that the bullet hit the knight
-                    if (hit.transform.gameObject == Knight)
+                    //check that the bullet hit the GAS
+                    if (hit.transform.gameObject == NPC_GAS)
                     {
-                        numHits++;
-                        if (numHits < 3) // npc can fall and get up again
+                        numHitsGAS++;
+                        if (numHitsGAS == 3) //dying
                         {
-                            StartCoroutine(KnightFallAndGettingUp());
-                        }
-                        else //npc is dying
-                        {
-                            animator.SetInteger("state", 4); //dying
+                            animator.SetInteger("state", 3); 
                             agent.enabled = false;
+                        }
+                    }
+                    else if (hit.transform.gameObject == NPC_SWAT)
+                    {
+                        numHitsSWAT++;
+                        if (numHitsSWAT == 3) //dying
+                        {
+                            animator2.SetInteger("state", 3); //dying
+                            agent2.enabled = false;
                         }
                     }
                 }
