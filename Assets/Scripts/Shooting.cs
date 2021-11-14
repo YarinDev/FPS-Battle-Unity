@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class Shooting : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class Shooting : MonoBehaviour
     private Animator animator, animator2;
     private static int numHitsGAS, numHitsSWAT;
     private NavMeshAgent agent, agent2;
+    public Text text ;
+
 
     // Start is called before the first frame update
     void Start()
@@ -83,6 +86,11 @@ public class Shooting : MonoBehaviour
                             animator2.SetInteger("state", 3); //dying
                             agent2.enabled = false;
                         }
+                    }
+
+                    if (numHitsSWAT >= 3 && numHitsGAS >= 3)
+                    {
+                        text.text = "You Won!!!\n GAME OVER";
                     }
                 }
             }
