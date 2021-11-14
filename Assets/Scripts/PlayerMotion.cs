@@ -50,12 +50,12 @@ public class PlayerMotion : MonoBehaviour
         //if  was A/W/S/D key was pressed
         if (dz < 0 || dz > 0 || dx < 0 || dx > 0)
         {
+            if (!stepSound.isPlaying)
+                stepSound.Play();
             if (counter > 0)
             {
                 if (agent.enabled.Equals(true) && agent2.enabled.Equals(true))
                 {
-                    if (!stepSound.isPlaying)
-                        stepSound.Play();
                     //turn on npc
                     animator = npc.GetComponent<Animator>();
                     animator2 = npc2.GetComponent<Animator>();
@@ -74,8 +74,6 @@ public class PlayerMotion : MonoBehaviour
             }
             else
             {
-                if (!stepSound.isPlaying)
-                    stepSound.Play();
                 //turn on npc
                 animator = npc.GetComponent<Animator>();
                 animator2 = npc2.GetComponent<Animator>();
