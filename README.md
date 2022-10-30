@@ -1,7 +1,7 @@
 # FPS Battle game
 ## Description
 
-This project simulates an FPS shooter battle between 4 players (2 vs 2).
+This project simulates an FPS shooter battle between 4 players (2 vs 2)
 
 Each team needs to eliminate the opposite team.
 
